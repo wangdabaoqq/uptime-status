@@ -24,8 +24,7 @@ export async function GetMonitors(apikey, days) {
     logs_end_date: end,
     custom_uptime_ranges: ranges.join('-'),
   };
-
-  const response = await axios.post('https://status-proxy.940703.xyz/uptimerobot/v2/getMonitors', postdata, { timeout: 10000 });
+  const response = await axios.post('https://status-proxy.940703.xyz/v2/getMonitors', postdata, { timeout: 10000 });
   if (response.data.stat !== 'ok') throw response.data.error;
   return response.data.monitors.map((monitor) => {
 
